@@ -32,10 +32,14 @@ var aggregation = (base, ...mixins) => {
             /*  call base class constructor  */
             super(...args)
 
+            /* interfaces */
+            this.__interfaces = [];
+
             /*  call mixin's initializer  */
             mixins.forEach((mixin) => {
                 if (typeof mixin.prototype.initializer === "function")
                     mixin.prototype.initializer.apply(this, args)
+                    this.__interfaces.push(mixin.toString());
             })
         }
     };
