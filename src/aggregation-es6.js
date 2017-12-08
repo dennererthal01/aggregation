@@ -33,7 +33,7 @@ var aggregation = (base, ...mixins) => {
             super(...args)
 
             /* interfaces */
-            this.__interfaces = [];
+            if (!this.__interfaces) this.__interfaces = [];
 
             /*  call mixin's initializer  */
             mixins.forEach((mixin) => {
